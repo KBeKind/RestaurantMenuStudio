@@ -6,7 +6,8 @@ import java.util.Date;
 
 public class Menu {
 
-    private Date dateUpdated;
+
+    private String dateUpdated;
     public ArrayList<MenuItem> items;
 
     private LocalDate currentDate = LocalDate.now();
@@ -17,22 +18,31 @@ public class Menu {
 
     public void addItem(MenuItem itemBeingAdded){
         this.items.add(itemBeingAdded);
+        this.newUpdate();
     }
 
     public void removeItem(MenuItem itemBeingRemoved){
         this.items.remove(itemBeingRemoved);
+        this.newUpdate();
     }
 
-    public String lastUpdated(){
-        return this.currentDate.toString();
+    public void newUpdate(){
+        this.dateUpdated = this.currentDate.toString();
     }
 
     public void printAllItems(){
-        System.out.println("test works");
+        for (MenuItem mI : items) {
+            System.out.println(mI);
         }
-
-
     }
+    public String getDateUpdated() {
+        return dateUpdated;
+    }
+
+    public void setDateUpdated(String dateUpdated) {
+        this.dateUpdated = dateUpdated;
+    }
+}
 
 
 

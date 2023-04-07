@@ -16,7 +16,7 @@ public class Main {
                 true, true,currentDate);
 
         MenuItem sandwich2 = new MenuItem(
-                "chicken sandwich","a chicken sandwich on bread", 10.50, "main course",
+                "chicken sandwich2","a chicken sandwich on bread", 10.50, "main course",
                 true, true,currentDate);
 
         ArrayList<MenuItem> testList = new ArrayList<>();
@@ -25,6 +25,14 @@ public class Main {
 
         testMenu.addItem(sandwich);
         testMenu.addItem(sandwich2);
+
+        testMenu.printAllItems();
+
+        System.out.println(testMenu.getDateUpdated());
+
+        testMenu.removeItem(sandwich2);
+
+        System.out.println(testMenu.getDateUpdated());
 
 
 
