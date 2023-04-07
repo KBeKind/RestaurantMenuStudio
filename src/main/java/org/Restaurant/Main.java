@@ -1,5 +1,4 @@
 package org.Restaurant;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -30,13 +29,14 @@ public class Main {
 
         System.out.println(testMenu.getDateUpdated());
 
+        try {
+            Thread.sleep(3000); // Wait for 3 seconds (3000 milliseconds)
+        } catch (InterruptedException e) {
+            // Handle the exception if the thread is interrupted while sleeping
+        }
+
         testMenu.removeItem(sandwich2);
-
         System.out.println(testMenu.getDateUpdated());
-
-
-
-
     }
 
 

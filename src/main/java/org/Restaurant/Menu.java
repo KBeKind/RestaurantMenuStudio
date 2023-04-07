@@ -1,16 +1,14 @@
 package org.Restaurant;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class Menu {
-
 
     private String dateUpdated;
     public ArrayList<MenuItem> items;
 
-    private LocalDate currentDate = LocalDate.now();
+    private LocalDateTime currentDate = LocalDateTime.now();
 
     public Menu(ArrayList<MenuItem> items){
         this.items = items;
@@ -27,6 +25,7 @@ public class Menu {
     }
 
     public void newUpdate(){
+        currentDate = LocalDateTime.now();
         this.dateUpdated = this.currentDate.toString();
     }
 
