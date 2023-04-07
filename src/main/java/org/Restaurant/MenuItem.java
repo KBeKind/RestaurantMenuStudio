@@ -1,5 +1,6 @@
 package org.Restaurant;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,31 +12,20 @@ public class MenuItem {
     private boolean isNew;
     private String name;
     private boolean isAvailable;
-    private boolean isVegan;
-    private boolean isGlutenFree;
-    private Date dateAdded;
-    private ArrayList<String> allergens;
-    private int spiceLevel;
-    private String proteinType;
+    private LocalDate dateAdded;
 
-    public MenuItem(String description, double price, String category, boolean isNew, String name, boolean isAvailable, boolean isVegan, Date dateAdded, ArrayList<String> allergens, int spiceLevel, String proteinType) {
+    public MenuItem(String name, String description, double price, String category, boolean isAvailable, boolean isNew,
+                    LocalDate dateAdded) {
+        this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
-        this.isNew = isNew;
-        this.name = name;
         this.isAvailable = isAvailable;
-        this.isVegan = isVegan;
+        this.isNew = isNew;
         this.dateAdded = dateAdded;
-        this.allergens = allergens;
-        this.spiceLevel = spiceLevel;
-        this.proteinType = proteinType;
+
     }
 
-
-
-
-    //Getters and Setters
     public String getDescription() {
         return description;
     }
@@ -84,44 +74,39 @@ public class MenuItem {
         isAvailable = available;
     }
 
-    public boolean isVegan() {
-        return isVegan;
-    }
-
-    public void setVegan(boolean vegan) {
-        isVegan = vegan;
-    }
-
-    public Date getDateAdded() {
+    public LocalDate getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(Date dateAdded) {
+    public void setDateAdded(LocalDate dateAdded) {
         this.dateAdded = dateAdded;
     }
 
-    public ArrayList<String> getAllergens() {
-        return allergens;
+
+    @Override
+    public boolean equals(Object toBeCompared) {
+        if (this == toBeCompared) {
+            return true;
+        }
+        if (toBeCompared == null || getClass() != toBeCompared.getClass()) {
+            return false;
+        }
+        MenuItem aMenuItem = (MenuItem) toBeCompared;
+        return getName().equals(aMenuItem.getName());
     }
 
-    public void setAllergens(ArrayList<String> allergens) {
-        this.allergens = allergens;
+    @Override
+    public String toString() {
+        return this.name + ": " + this.description + " | price: $" + price + " | category: " + category +
+                " | availability: " + this.isAvailable + " | New?: " + this.isNew + " | Date added: " + this.dateAdded;
     }
 
-    public int getSpiceLevel() {
-        return spiceLevel;
-    }
 
-    public void setSpiceLevel(int spiceLevel) {
-        this.spiceLevel = spiceLevel;
-    }
 
-    public String getProteinType() {
-        return proteinType;
-    }
 
-    public void setProteinType(String proteinType) {
-        this.proteinType = proteinType;
-    }
+
 
 }
+
+
+

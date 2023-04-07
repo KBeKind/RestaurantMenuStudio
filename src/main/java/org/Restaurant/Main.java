@@ -1,8 +1,6 @@
 package org.Restaurant;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Main {
@@ -10,10 +8,31 @@ public class Main {
     public static void main(String[] args) {
 
         LocalDate currentDate = LocalDate.now();
-        System.out.println(currentDate);
 
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        System.out.println(currentDateTime);
+        String[] testAllergensArray = {"gluten", "dairy"};
+
+        MenuItem sandwich = new MenuItem(
+                "chicken sandwich","a chicken sandwich on bread", 10.50, "main course",
+                true, true,currentDate);
+
+        MenuItem sandwich2 = new MenuItem(
+                "chicken sandwich","a chicken sandwich on bread", 10.50, "main course",
+                true, true,currentDate);
+
+        ArrayList<MenuItem> testList = new ArrayList<>();
+
+        Menu testMenu = new Menu(testList);
+
+        testMenu.addItem(sandwich);
+        testMenu.addItem(sandwich2);
+
+
+
 
     }
+
+
+
+
+
 }

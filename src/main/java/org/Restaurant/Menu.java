@@ -1,38 +1,46 @@
 package org.Restaurant;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Menu {
 
-    public Date getDateUpdated() {
-        return dateUpdated;
-    }
+    private Date dateUpdated;
+    public ArrayList<MenuItem> items;
 
-    public void setDateUpdated(Date dateUpdated) {
-        this.dateUpdated = dateUpdated;
-    }
+    private LocalDate currentDate = LocalDate.now();
 
-    public ArrayList<MenuItem> getItems() {
-        return items;
-    }
-
-    public void setItems(ArrayList<MenuItem> items) {
+    public Menu(ArrayList<MenuItem> items){
         this.items = items;
     }
 
-    public MenuItem getMostRecent() {
-        return mostRecent;
+    public void addItem(MenuItem itemBeingAdded){
+        this.items.add(itemBeingAdded);
     }
 
-    public void setMostRecent(MenuItem mostRecent) {
-        this.mostRecent = mostRecent;
+    public void removeItem(MenuItem itemBeingRemoved){
+        this.items.remove(itemBeingRemoved);
     }
 
-    private Date dateUpdated;
-    private ArrayList<MenuItem> items;
-    private MenuItem mostRecent;
+    public String lastUpdated(){
+        return this.currentDate.toString();
+    }
+
+    public void printAllItems(){
+        System.out.println("test works");
+        }
+
+
+    }
 
 
 
-}
+
+
+
+
+
+
+
+
